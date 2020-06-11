@@ -10,7 +10,5 @@ async function getCovidApi() {
   document.getElementById("td").innerHTML = jsFormatData.deaths;
   document.getElementById("tr").innerHTML = jsFormatData.recovered;
   document.getElementById("tst").innerHTML = jsFormatData.tests;
-  console.log(jsFormatData.flag);
-  console.log(jsFormatData);
 }
 getCovidApi();
