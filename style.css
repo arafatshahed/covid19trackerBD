@@ -1,0 +1,91 @@
+* {
+  font-family: "Ubuntu", sans-serif;
+}
+body {
+  background-color: #24252a;
+}
+
+.container {
+  display: grid;
+  padding: 0% 10% 10% 10%;
+}
+.container p {
+  font-family: "Roboto Mono", monospace;
+  font-size: 2em;
+  margin: 0px;
+}
+.container h1 {
+  color: aliceblue;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.board {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  color: aliceblue;
+  justify-items: center;
+  text-align: center;
+}
+.acases,
+.tcases,
+.rcases,
+.trcases,
+.ccases,
+.tdeaths,
+.ndeaths,
+.test {
+  position: relative;
+  justify-content: center;
+  justify-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 10px;
+  border-radius: 5%;
+  width: 60%;
+  padding: 10%;
+}
+.acases {
+  background-color: #41a7ff;
+}
+.ndeaths {
+  background-color: #aa1616;
+}
+.rcases {
+  background-color: #32b336;
+}
+.trcases {
+  background-color: #1c8620;
+}
+.tcases {
+  background-color: #ff3434;
+}
+.ccases {
+  background-color: #d83f3f;
+}
+.tdeaths {
+  background-color: #ff0053;
+}
+.test {
+  background-color: #ffa501;
+}
+#flag {
+  height: 30px;
+  width: 45px;
+  padding: 5px 0px 0px 10px;
+}
+@media screen and (max-width: 1080px) {
+  .board {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 600px) {
+  .board {
+    grid-template-columns: 1fr;
+  }
+}
+footer {
+  text-align: center;
+  background-color: slateblue;
+}
