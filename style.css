@@ -20,6 +20,14 @@ body {
   align-items: center;
   text-align: center;
 }
+.container .update {
+  text-align: center;
+  color: aliceblue;
+}
+.container .update p {
+  font-size: 1em;
+  display: inline;
+}
 .board {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
