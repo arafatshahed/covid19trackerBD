@@ -1,0 +1,20 @@
+{
+  "name": "Corona Tracker BD",
+  "short_name": "CoronaBD",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "Covid -19 Tracker For Bangladesh.",
+  "icons": [
+    {
+      "src": "images/homescreen512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "images/homescreen192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
