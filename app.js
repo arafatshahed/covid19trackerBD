@@ -79,3 +79,16 @@ async function getCovidApi() {
   }
 }
 getCovidApi();
+function theme() {
+  if (document.getElementById("chk").value == "on") {
+    document.getElementById("chk").value = "off";
+    document.getElementsByClassName("board")[0].style.color = "#24252a";
+    document.getElementById("myhead").style.color = "#24252a";
+    document.body.style.backgroundColor = "#f0f8ff";
+  } else {
+    document.body.style.backgroundColor = "#24252a";
+    document.getElementById("chk").value = "on";
+    document.getElementsByClassName("board")[0].style.color = "#f0f8ff";
+    document.getElementById("myhead").style.color = "#f0f8ff";
+  }
+}
