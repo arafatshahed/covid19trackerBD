@@ -80,15 +80,58 @@ async function getCovidApi() {
 }
 getCovidApi();
 function theme() {
-  if (document.getElementById("chk").value == "on") {
-    document.getElementById("chk").value = "off";
-    document.getElementsByClassName("board")[0].style.color = "#24252a";
+  console.log(document.getElementById("chk").checked);
+  if (document.getElementById("chk").checked == false) {
+    setThemevalue(false);
+    //document.getElementById("chk").value = "off";
+    document.getElementById("chk").checked = false;
+    document.getElementById("board").style.color = "#24252a";
     document.getElementById("myhead").style.color = "#24252a";
     document.body.style.backgroundColor = "#f0f8ff";
   } else {
+    setThemevalue(true);
+    document.getElementById("chk").checked = true;
     document.body.style.backgroundColor = "#24252a";
-    document.getElementById("chk").value = "on";
-    document.getElementsByClassName("board")[0].style.color = "#f0f8ff";
+    //document.getElementById("chk").value = "on";
+    document.getElementById("board").style.color = "#f0f8ff";
     document.getElementById("myhead").style.color = "#f0f8ff";
   }
+}
+function setTheme() {
+  console.log(document.getElementById("chk").checked);
+  console.log(localStorage.getItem("theme"));
+  var value = localStorage.getItem("theme");
+  console.log(typeof (value));
+  if (localStorage.getItem("theme") == "false") {
+    console.log("dark off inside set");
+    document.getElementById("chk").checked = false;
+    document.getElementById("board").style.color = "#24252a";
+    document.getElementById("myhead").style.color = "#24252a";
+    document.body.style.backgroundColor = "#f0f8ff";
+  } else {
+    console.log("dark on inside set");
+    document.getElementById("chk").checked = true;
+    document.body.style.backgroundColor = "#24252a";
+    document.getElementById("board").style.color = "#f0f8ff";
+    document.getElementById("myhead").style.color = "#f0f8ff";
+  }
+}
+function setThemevalue(ctheme) {
+  if (typeof (Storage) !== "undefined") {
+    // Store
+    console.log("value ", ctheme);
+    localStorage.setItem("theme", ctheme);
+    console.log(localStorage.getItem("theme"));
+    // Retrieve
+  } else {
+    console.log("Sorry, your browser does not support Web Storage...");
+  }
+}
+function checkThemevalue() {
+  console.log(localStorage.getItem("theme"));
+  if (localStorage.getItem("theme") == null) {
+    localStorage.setItem("theme", true);
+  }
+  setTheme();
+  document.getElementById("chk").value = localStorage.getItem("theme");
 }

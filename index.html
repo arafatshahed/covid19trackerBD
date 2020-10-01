@@ -1,108 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      rel="stylesheet"
-    />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./images/icon.png" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="app.js"></script>
-    <script src="index.js"></script>
-    <link rel="manifest" href="manifest.webmanifest" />
-    <title>Covid 19 Tracker</title>
-  </head>
-  <body>
-    <div class="container">
-      <div class="theme">
-        <input type="checkbox" class="checkbox" id="chk" onclick="theme();" />
-        <label class="label" for="chk">
-          <div class="ball"></div>
-        </label>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/icon.png" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="app.js"></script>
+  <script src="index.js"></script>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <title>Covid 19 Tracker</title>
+</head>
+
+<body onload="checkThemevalue();">
+  <div class="container">
+    <div class="theme">
+      <input type="checkbox" class="checkbox" id="chk" onclick="theme();" />
+      <label class="label" for="chk">
+        <div class="ball"></div>
+      </label>
+    </div>
+
+    <head>
+      <h1 id="myhead">
+        Corona Virus Live Status in Bangladesh
+        <img id="flag" src="https://disease.sh/assets/img/flags/bd.png" alt="" />
+      </h1>
+    </head>
+    <div class="board" id="board">
+      <div class="acases">
+        <i class="fa fa-tachometer"></i>
+        <h3>New Cases</h3>
+        <p id="nc"></p>
       </div>
-      <head>
-        <h1 id="myhead">
-          Corona Virus Live Status in Bangladesh
-          <img
-            id="flag"
-            src="https://disease.sh/assets/img/flags/bd.png"
-            alt=""
-          />
-        </h1>
-      </head>
-      <div class="board">
-        <div class="acases">
-          <i class="fa fa-tachometer"></i>
-          <h3>New Cases</h3>
-          <p id="nc"></p>
-        </div>
-        <div class="ndeaths">
-          <i class="fa fa-times"></i>
-          <h3>New Deaths</h3>
-          <p id="nd"></p>
-        </div>
-        <div class="rcases">
-          <i class="fa fa-check-square-o"></i>
-
-          <h3>New Recovered Cases</h3>
-          <p id="nrc"></p>
-        </div>
-
-        <div class="tcases">
-          <i class="fa fa-th-list"></i>
-          <h3>Total Cases</h3>
-          <p id="tc"></p>
-        </div>
-
-        <div class="tdeaths">
-          <i class="fa fa-times-circle"></i>
-          <h3>Total Deaths</h3>
-          <p id="td"></p>
-        </div>
-        <div class="trcases">
-          <i class="fa fa-check-circle-o" aria-hidden="true"></i>
-          <h3>Total Recovered</h3>
-          <p id="tr"></p>
-        </div>
-        <div class="test">
-          <i class="fa fa-eye"></i>
-          <h3>Total Test Done</h3>
-          <p id="tst"></p>
-        </div>
+      <div class="ndeaths">
+        <i class="fa fa-times"></i>
+        <h3>New Deaths</h3>
+        <p id="nd"></p>
       </div>
-      <div class="update">
-        <br />
-        <p>Updated on :</p>
-        <p id="update"></p>
+      <div class="rcases">
+        <i class="fa fa-check-square-o"></i>
+
+        <h3>New Recovered Cases</h3>
+        <p id="nrc"></p>
+      </div>
+
+      <div class="tcases">
+        <i class="fa fa-th-list"></i>
+        <h3>Total Cases</h3>
+        <p id="tc"></p>
+      </div>
+
+      <div class="tdeaths">
+        <i class="fa fa-times-circle"></i>
+        <h3>Total Deaths</h3>
+        <p id="td"></p>
+      </div>
+      <div class="trcases">
+        <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+        <h3>Total Recovered</h3>
+        <p id="tr"></p>
+      </div>
+      <div class="test">
+        <i class="fa fa-eye"></i>
+        <h3>Total Test Done</h3>
+        <p id="tst"></p>
       </div>
     </div>
-    <footer>
-      <div class="myprofile">
-        <button>
-          <a href="https://github.com/arafatshahed/"
-            ><i class="fa fa-github fa-2x" aria-hidden="true"></i
-          ></a>
-        </button>
-        <button>
-          <a href="https://www.facebook.com/yeasirarafat.shahed/"
-            ><i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i
-          ></a>
-        </button>
-        <button>
-          <a href="https://www.youtube.com/windroidbooster/"
-            ><i class="fa fa-youtube-play fa-2x" aria-hidden="true"></i
-          ></a>
-        </button>
-      </div>
-      <p>Developed By Shahed, Quarantine Content.</p>
-    </footer>
-  </body>
+    <div class="update">
+      <br />
+      <p>Updated on :</p>
+      <p id="update"></p>
+    </div>
+  </div>
+  <footer>
+    <div class="myprofile">
+      <button>
+        <a href="https://github.com/arafatshahed/"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+      </button>
+      <button>
+        <a href="https://www.facebook.com/yeasirarafat.shahed/"><i class="fa fa-facebook-official fa-2x"
+            aria-hidden="true"></i></a>
+      </button>
+      <button>
+        <a href="https://www.youtube.com/windroidbooster/"><i class="fa fa-youtube-play fa-2x"
+            aria-hidden="true"></i></a>
+      </button>
+    </div>
+    <p>Developed By Shahed, Quarantine Content.</p>
+  </footer>
+</body>
+
 </html>
