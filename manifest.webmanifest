@@ -4,7 +4,7 @@
   "start_url": ".",
   "display": "standalone",
   "background_color": "#24252a",
-  "description": "Covid -19 Tracker For Bangladesh.",
+  "description": "Covid-19 Tracker For Bangladesh.",
   "icons": [
     {
       "src": "images/homescreen512.png",

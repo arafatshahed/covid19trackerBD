@@ -36,37 +36,6 @@ async function getCovidApi() {
   if (jsFormatData.todayCases == 0 && jsFormatData.todayDeaths == 0) {
     const jsonFormatData2 = await fetch("https://api.covid19api.com/summary");
     const jsFormatData2 = await jsonFormatData2.json();
-    const datex = jsFormatData2.Countries[13].Date;
-    var cdate = datex[8]+datex[9];
-    console.log(cdate);
-    var today = new Date().toISOString().slice(8, 10)
-    console.log(today)
-    if(today!=cdate){
-      const jsonFormatData3 = await fetch("https://api.covid19api.com/live/country/bangladesh/status/confirmed");
-      const jsFormatData3 = await jsonFormatData3.json();
-      var count = jsFormatData3.length;
-      console.log(jsFormatData3[count-1].Confirmed);
-      var conf = jsFormatData3[count-1].Confirmed - jsFormatData3[count-2].Confirmed;
-      var tdeaths = jsFormatData3[count-1].Deaths - jsFormatData3[count-2].Deaths;
-      var trec = jsFormatData3[count-1].Recovered - jsFormatData3[count-2].Recovered;
-      document.getElementById("nc").innerHTML = conf;
-      document.getElementById("nd").innerHTML = tdeaths;
-      document.getElementById("nrc").innerHTML = trec;
-      console.log(conf);
-      document.getElementById("tc").innerHTML = jsFormatData.cases;
-      document.getElementById("td").innerHTML = jsFormatData.deaths;
-      document.getElementById("tr").innerHTML = jsFormatData.recovered;
-      document.getElementById("tst").innerHTML = jsFormatData.tests;
-      const date = jsFormatData3[count-1].Date;
-      const lastupdated = Date.parse(date);
-      const date2 = new Date(parseInt(lastupdated));
-      const lastupdated2 = date2.toString();
-      const t = formatDate(lastupdated2);
-      var s = t.replace("GMT+0600 (Bangladesh Standard Time)", "");
-      document.getElementById("update").innerHTML = s;
-      console.log("ager data");
-    }
-    else{
     document.getElementById("nc").innerHTML =
       jsFormatData2.Countries[13].NewConfirmed;
     document.getElementById("nd").innerHTML =
@@ -90,7 +59,6 @@ async function getCovidApi() {
     document.getElementById("update").innerHTML = s;
     console.log(s);
     console.log("Result Coming from late API");
-    }
   } else {
     document.getElementById("nc").innerHTML = jsFormatData.todayCases;
     document.getElementById("nd").innerHTML = jsFormatData.todayDeaths;
@@ -112,38 +80,37 @@ async function getCovidApi() {
 }
 getCovidApi();
 function theme() {
-  console.log(document.getElementById("chk").checked);
-  if (document.getElementById("chk").checked == false) {
-    setThemevalue(false);
-    //document.getElementById("chk").value = "off";
-    document.getElementById("chk").checked = false;
+  if (document.getElementById("chk").value == "on") {
+    console.log("Black was called");
+    setThemevalue("on");
+    document.getElementById("chk").value = "off";
     document.getElementById("board").style.color = "#24252a";
     document.getElementById("myhead").style.color = "#24252a";
     document.body.style.backgroundColor = "#f0f8ff";
   } else {
-    setThemevalue(true);
-    document.getElementById("chk").checked = true;
+    console.log("White was called");
     document.body.style.backgroundColor = "#24252a";
-    //document.getElementById("chk").value = "on";
+    setThemevalue("off");
+    document.getElementById("chk").value = "on";
     document.getElementById("board").style.color = "#f0f8ff";
     document.getElementById("myhead").style.color = "#f0f8ff";
   }
 }
 function setTheme() {
-  console.log(document.getElementById("chk").checked);
-  console.log(localStorage.getItem("theme"));
-  var value = localStorage.getItem("theme");
-  console.log(typeof (value));
-  if (localStorage.getItem("theme") == "false") {
-    console.log("dark off inside set");
+  if (localStorage.getItem("theme") == "on") {
+    console.log("Black was called in set");
     document.getElementById("chk").checked = false;
+    //setThemevalue("on");
+    document.getElementById("chk").value = "off";
     document.getElementById("board").style.color = "#24252a";
     document.getElementById("myhead").style.color = "#24252a";
     document.body.style.backgroundColor = "#f0f8ff";
   } else {
-    console.log("dark on inside set");
     document.getElementById("chk").checked = true;
+    console.log("White was called in set");
     document.body.style.backgroundColor = "#24252a";
+    //setThemevalue("off");
+    document.getElementById("chk").value = "on";
     document.getElementById("board").style.color = "#f0f8ff";
     document.getElementById("myhead").style.color = "#f0f8ff";
   }
@@ -151,7 +118,7 @@ function setTheme() {
 function setThemevalue(ctheme) {
   if (typeof (Storage) !== "undefined") {
     // Store
-    console.log("value ", ctheme);
+    console.log(ctheme);
     localStorage.setItem("theme", ctheme);
     console.log(localStorage.getItem("theme"));
     // Retrieve
@@ -162,8 +129,9 @@ function setThemevalue(ctheme) {
 function checkThemevalue() {
   console.log(localStorage.getItem("theme"));
   if (localStorage.getItem("theme") == null) {
-    localStorage.setItem("theme", true);
+    localStorage.setItem("theme", "off");
   }
   setTheme();
   document.getElementById("chk").value = localStorage.getItem("theme");
 }
+
